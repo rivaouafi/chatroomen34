@@ -2,9 +2,12 @@
   "name": "nodejs",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+"scripts": {
+  "start-server": "server.js",
+  "start-public": "script.js",
+  "start": "npm run start-server & npm run start-public"
+},
+
   "keywords": [],
   "author": "ridha ouafi",
   "license": "ISC",
