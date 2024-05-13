@@ -1,0 +1,25 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "ridha ouafi",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.0.6",
+    "dotenv": "^16.4.5",
+    "socket.io": "^4.7.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rivaouafi/chatbn6.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rivaouafi/chatbn6/issues"
+  },
+  "homepage": "https://github.com/rivaouafi/chatbn6#readme",
+  "description": ""
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Real-Time Chat</title>
+<style>
+       body {
+       padding: 0;
+       margin: 0;
+       display: flex;
+       justify-content: center;
+
+
+   }
+  #message-container {
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#send-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+#messge-input {
+    margin-top: 10px;
+    padding: 10px;
+    width: calc(100% - 22px);
+}
+
+#send-button {
+    margin-top: 10px;
+    padding: 10px;
+}
+
+</style>
+</head>
+<body>
+ <div id="message-container">Riva Russia
+    <form id="send-container">
+    <input type="text" id="messge-input">
+    <button type="submit" id="send-button">send</button>
+     </form>
+         </div>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const socket = io('https://replit.com/@rivaouafi43/chatbn1#index.html');
+    const messageContainer = document.getElementById('message-container');
+    const messageInput = document.getElementById('message-input');
+    const sendButton = document.getElementById('send-button');
+
+        socket.on('message', message => {
+                const messageElement = document.createElement('div');
+                messageElement.textContent = message;
+                sendContainer.appendChild(messageElement);
+        });
+
+
+    sendButton.addEventListener('click', () => {
+        const message = messageInput.value.trim();
+        if(message) {
+            // Display the message in the message container
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageContainer.appendChild(messageElement);
+            // Clear the input field
+            messageInput.value = '';
+            // Scroll to the bottom of the message container
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  
+</body>
+</html>
